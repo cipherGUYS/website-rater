@@ -31,7 +31,7 @@ function authent(){
     document.cookie=`email = ${user.email} `;
     document.cookie=`phone = ${user.phoneNumber}`;
     document.cookie=`pic=${user.photoURL}`;
-    window.location.assign('./profile.html');
+    window.location.assign('./Profile.html');
     }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
