@@ -8,6 +8,11 @@ function fill_temp() {
             name: "Handlebars",
             frameurl: "https://handlebarsjs.com/",
             url: "https://handlebarsjs.com/"
+        },
+        {
+            name:"Tomin",
+            frameurl:"https://tomin-joy.github.io",
+            url:"https://tomin-joy.github.io"
         }
         ]
     }
