@@ -14,6 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const l = console.log;
+let mob;
 let data = {};
 function cookieData() {
     document.cookie.split('; ').forEach(element => {
@@ -43,6 +44,7 @@ function checker() {
     cookieData();
     get(child(ref(db), `${data.user_name}/`)).then((dbData) => {
         if (dbData.exists()) {
+            mob=dbData.val().phone;
             document.getElementById('pPic').style.backgroundImage = `url(${dbData.val().pic})`;
             document.getElementById('pName').innerText = dbData.val().disp_name;
             document.getElementById('fName').value = dbData.val().disp_name;
@@ -80,7 +82,7 @@ function updater() {
         email: document.getElementById('fEmail').value
     }).then(() => {
         //data.user_name = document.getElementById('fName').value;
-        document.cookie=`phone = ${dbData.val().phone}`;
+        document.cookie=`phone = ${mob}`;
         checker();
     });
 }
