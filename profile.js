@@ -46,11 +46,11 @@ function checker() {
             document.getElementById('pPic').style.backgroundImage = `url(${dbData.val().pic})`;
             document.getElementById('pName').innerText = dbData.val().disp_name;
             document.getElementById('fName').value = dbData.val().disp_name;
-            if (data.phone == "null") {
+            if (dbData.val().phone == "null") {
                 document.getElementById('pNumber').innerText = "Not provided"
             } else {
                 document.getElementById('pNumber').innerText = dbData.val().phone;
-                document.getElementById('fNumber').value = dbData.val().phone;
+                document.getElementById('fPhone').value = dbData.val().phone;
             }
             document.getElementById('pEmail').innerText = dbData.val().email;
             document.getElementById('fEmail').value = dbData.val().email;
@@ -72,13 +72,15 @@ function checker() {
 }
 
 function updater() {
-    data.user_name = document.getElementById('fName').value;
+    
     update(ref(db, `${data.user_name}/`), {
         disp_name: document.getElementById('fName').value,
-        phone: document.getElementById('fNumber').value,
-        email: document.getElementById('fEmail')
+        phone: document.getElementById('fPhone').value,
+        email: document.getElementById('fEmail').value
     }).then(() => {
-        printer();
+        //data.user_name = document.getElementById('fName').value;
+        document.cookie=`phone = ${dbData.val().phone}`;
+        checker();
     });
 }
 
