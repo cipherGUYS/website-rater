@@ -83,9 +83,22 @@ function updater() {
         checker();
     });
 }
-
+function logout(){
+    document.cookie='phone=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie='user_name=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie='token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie='pic=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie='=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.replace('./index.html');
+}
 checker();
 document.getElementById('update button').addEventListener("click", () => {
     updater();
+})
+document.getElementById('logout').addEventListener("click",()=>{
+    logout();
+})
+document.getElementById('logOut').addEventListener("click",()=>{
+    logout();
 })
 //printer();
