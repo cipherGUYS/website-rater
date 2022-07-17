@@ -31,3 +31,10 @@ function fill_temp() {
     var filled = template(data);
     document.querySelector("#output").innerHTML = filled;
 }
+
+document.getElementById('logout').addEventListener("click", () => {
+    logout();
+})
+document.getElementById('logOut').addEventListener("click", () => {
+    logout();
+})

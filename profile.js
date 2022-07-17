@@ -44,7 +44,7 @@ function checker() {
     cookieData();
     get(child(ref(db), `${data.user_name}/`)).then((dbData) => {
         if (dbData.exists()) {
-            mob=dbData.val().phone;
+            mob = dbData.val().phone;
             document.getElementById('pPic').style.backgroundImage = `url(${dbData.val().pic})`;
             document.getElementById('pName').innerText = dbData.val().disp_name;
             document.getElementById('fName').value = dbData.val().disp_name;
@@ -74,39 +74,35 @@ function checker() {
 }
 
 function updater() {
-    
+
     update(ref(db, `${data.user_name}/`), {
         disp_name: document.getElementById('fName').value,
         phone: document.getElementById('fPhone').value,
-        registered_with:data.email,
+        registered_with: data.email,
         email: document.getElementById('fEmail').value
     }).then(() => {
         //data.user_name = document.getElementById('fName').value;
-        document.cookie=`phone = ${mob}`;
+        document.cookie = `phone = ${mob}`;
         checker();
     });
 }
-function logout(){
-    document.cookie='phone=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie='user_name=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie='token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie='pic=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    document.cookie='=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+function logout() {
+    document.cookie = 'phone=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'user_name=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'pic=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.replace('./index.html');
 }
-if(data.user_name){
+
+if (data.user_name) {
     checker();
-}else{
+} else {
     window.alert("Logged out");
-    window.location.replace("./index.html");    
+    window.location.replace("./index.html");
 }
 document.getElementById('update button').addEventListener("click", () => {
     updater();
 })
-document.getElementById('logout').addEventListener("click",()=>{
-    logout();
-})
-document.getElementById('logOut').addEventListener("click",()=>{
-    logout();
-})
+
 //printer();
