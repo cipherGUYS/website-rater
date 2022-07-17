@@ -76,6 +76,7 @@ function updater() {
     update(ref(db, `${data.user_name}/`), {
         disp_name: document.getElementById('fName').value,
         phone: document.getElementById('fPhone').value,
+        registered_with:data.email,
         email: document.getElementById('fEmail').value
     }).then(() => {
         //data.user_name = document.getElementById('fName').value;
