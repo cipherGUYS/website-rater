@@ -1,3 +1,15 @@
+let brData = {};
+function cookieData() {
+    document.cookie.split('; ').forEach(element => {
+        var word = element.split('=');
+        brData[word[0]] = word[1];
+    });
+}
+cookieData();
+if (brData.user_name==null) {
+    window.alert("Logged out");
+    window.location.replace("./index.html");
+}
 function fill_temp() {
     var data = {
         list: [{
