@@ -76,6 +76,7 @@ function updater() {
     update(ref(db, `${data.user_name}/`), {
         disp_name: document.getElementById('fName').value,
         phone: document.getElementById('fPhone').value,
+        registered_with:data.email,
         email: document.getElementById('fEmail').value
     }).then(() => {
         //data.user_name = document.getElementById('fName').value;
@@ -91,7 +92,12 @@ function logout(){
     document.cookie='=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.replace('./index.html');
 }
-checker();
+if(data.user_name){
+    checker();
+}else{
+    window.alert("Logged out");
+    window.location.replace("./index.html");    
+}
 document.getElementById('update button').addEventListener("click", () => {
     updater();
 })
