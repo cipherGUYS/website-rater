@@ -10,6 +10,16 @@ if (brData.user_name==null) {
     window.alert("Logged out");
     window.location.replace("./index.html");
 }
+
+function logout() {
+    document.cookie = 'phone=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'user_name=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = 'pic=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.replace('./index.html');
+}
+
 function fill_temp() {
     var data = {
         list: [{

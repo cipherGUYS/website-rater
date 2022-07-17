@@ -104,5 +104,10 @@ if (data.user_name) {
 document.getElementById('update button').addEventListener("click", () => {
     updater();
 })
-
+document.getElementById('logout').addEventListener("click", () => {
+    logout();
+})
+document.getElementById('logOut').addEventListener("click", () => {
+    logout();
+})
 //printer();
