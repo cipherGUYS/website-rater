@@ -42,7 +42,7 @@ function printer() {
 
 function checker() {
     cookieData();
-    get(child(ref(db), `${data.user_name}/`)).then((dbData) => {
+    get(child(ref(db), `users/${data.user_name}/`)).then((dbData) => {
         if (dbData.exists()) {
             mob = dbData.val().phone;
             document.getElementById('pPic').style.backgroundImage = `url(${dbData.val().pic})`;
@@ -58,7 +58,7 @@ function checker() {
             document.getElementById('fEmail').value = dbData.val().email;
             document.getElementById('Head Name').innerText = ` Hello, ${dbData.val().disp_name}`;
         } else {
-            update(ref(db, `${data.user_name}/`), {
+            update(ref(db, `users/${data.user_name}/`), {
                 disp_name: data.user_name,
                 phone: data.phone,
                 email: data.email,
@@ -74,8 +74,7 @@ function checker() {
 }
 
 function updater() {
-
-    update(ref(db, `${data.user_name}/`), {
+    update(ref(db, `users/${data.user_name}/`), {
         disp_name: document.getElementById('fName').value,
         phone: document.getElementById('fPhone').value,
         registered_with: data.email,
@@ -83,6 +82,7 @@ function updater() {
     }).then(() => {
         //data.user_name = document.getElementById('fName').value;
         document.cookie = `phone = ${mob}`;
+        document.cookie = `disp_name = ${document.getElementById('fName').value}`;
         checker();
     });
 }
