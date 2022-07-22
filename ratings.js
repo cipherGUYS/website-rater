@@ -256,8 +256,7 @@ function rater(name,value){
               total+=ratingVal[element1].value;
             });
             var avg=total/count;
-            var avgR=Math.round(avg * 100) / 100;
-            document.getElementById(`${name}-rating`).innerText=`${avgR}`;
+            document.getElementById(`${name}-rating`).innerText=`${Math.round(avg * 100) / 100}`;
       }
     });
     console.log("updated")
@@ -285,7 +284,7 @@ function rater(name,value){
                 total+=ratingVal[element][element1].value;
               });
               var avg=total/count;
-              document.getElementById(`${element}-rating`).innerText=`${avg}`;
+              document.getElementById(`${element}-rating`).innerText=`${Math.round(avg * 100) / 100}`;
             });
         }
       });
