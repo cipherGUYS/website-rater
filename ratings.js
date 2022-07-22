@@ -256,7 +256,8 @@ function rater(name,value){
               total+=ratingVal[element1].value;
             });
             var avg=total/count;
-            document.getElementById(`${name}-rating`).innerText=`${Math.round(avg * 100) / 100}`;
+            var avgR=Math.round(avg * 100) / 100;
+            document.getElementById(`${name}-rating`).innerText=`${avgR}`;
       }
     });
     console.log("updated")
