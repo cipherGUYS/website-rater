@@ -36,9 +36,6 @@ if (data.user_name == null) {
 
 var students = [
   {
-    name: "cipherGUYS",
-  },
-  {
     name: "Tomin Joy",
   },
   {
