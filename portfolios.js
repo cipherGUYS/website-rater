@@ -2,11 +2,6 @@ function fill_temp() {
   var data = {
     list: [
       {
-        name: "cipherGUYS",
-        frameurl: "https://cipherguys.github.io",
-        url: "https://cipherguys.github.io",
-      },
-      {
         name: "Tomin Joy",
         frameurl: "https://tomin-joy.github.io",
         url: "https://tomin-joy.github.io",
